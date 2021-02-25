@@ -1,3 +1,5 @@
+const { write } = require('../utils')
+
 const rtl = {
   name: 'RTL',
   init: async (page) => {
@@ -11,7 +13,7 @@ const rtl = {
     if (gdprButton) {
       await page
         .click(gdprSelector)
-        .catch((e) => console.log('failed to click RTL gdpr button: ', e))
+        .catch((e) => write('failed to click RTL gdpr button: ', e))
     }
     const frames = await page.frames()
     const playerFrameSelectors = await Promise.all(

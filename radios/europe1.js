@@ -1,3 +1,5 @@
+const { write } = require('../utils')
+
 const europe = {
   name: 'europe 1',
   init: async (page) => {
@@ -9,7 +11,7 @@ const europe = {
     if (gdprButton) {
       await page
         .click(gdprSelector)
-        .catch((e) => console.log('failed to click Europe gdpr button: ', e))
+        .catch((e) => write('failed to click Europe gdpr button: ', e))
     }
     await page.click('button.direct.unmute')
   },

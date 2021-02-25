@@ -1,3 +1,5 @@
+const { write } = require('../utils')
+
 const franceInter = {
   name: 'France intère.',
   init: async (page) => {
@@ -11,9 +13,7 @@ const franceInter = {
     if (gdprButton) {
       await page
         .click(gdprSelector)
-        .catch((e) =>
-          console.log('failed to click France Inter gdpr button: ', e)
-        )
+        .catch((e) => write('failed to click France Inter gdpr button: ', e))
     }
     await page.click('button.replay-button.playable.action-button.black')
   },

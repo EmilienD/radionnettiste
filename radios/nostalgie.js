@@ -1,3 +1,5 @@
+const { write } = require('../utils')
+
 const nostalgie = {
   name: 'Nostalgie',
   init: async (page) => {
@@ -11,19 +13,19 @@ const nostalgie = {
     const gdprButton = await page.$(gdprSelector).catch(() => null)
     if (gdprButton) {
       await gdprButton.click().catch((e) => {
-        console.log('failed to click Nostalgie gdpr button: ', e)
+        write('failed to click Nostalgie gdpr button: ', e)
         throw e
       })
     }
     await page.click('button[aria-label="play"]').catch((e) => {
-      console.log('failed to click nostalgie play button: ', e)
+      write('failed to click nostalgie play button: ', e)
       throw e
     })
 
     const stopButton = await page.$('button[aria-label="stop"]')
     if (stopButton) {
       return stopButton.click().catch((e) => {
-        console.log('failed to click nostalgie stop button: ', e)
+        write('failed to click nostalgie stop button: ', e)
         throw e
       })
     }
@@ -33,12 +35,12 @@ const nostalgie = {
     const gdprButton = await page.$(gdprSelector).catch(() => null)
     if (gdprButton) {
       await gdprButton.click().catch((e) => {
-        console.log('failed to click Nostalgie gdpr button: ', e)
+        write('failed to click Nostalgie gdpr button: ', e)
         throw e
       })
     }
     return page.click('button[aria-label="play"]').catch((e) => {
-      console.log('failed to click nostalgie play button: ', e)
+      write('failed to click nostalgie play button: ', e)
       throw e
     })
   },
@@ -46,7 +48,7 @@ const nostalgie = {
     const stopButton = await page.$('button[aria-label=stop]')
     if (stopButton) {
       return stopButton.click().catch((e) => {
-        console.log('failed to click nostalgie stop button: ', e)
+        write('failed to click nostalgie stop button: ', e)
         throw e
       })
     }
