@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "bin": {
-    "radionnettiste": "./index.js"
+    "radionnettiste": "./src/index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
