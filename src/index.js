@@ -10,7 +10,7 @@ const start = async () => {
   speak('Chargement des stations de radio en cours.')
   const browser = await puppeteer
     .launch({
-      executablePath: shell.which('google-chrome').stdout,
+      executablePath: shell.which('chromium-browser').stdout,
       headless: true,
       defaultViewport: { height: 800, width: 1200 },
       ignoreDefaultArgs: ['--mute-audio', '--hide-scrollbars'],
