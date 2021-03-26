@@ -29,7 +29,7 @@ function main() {
     radio_name="$(echo "${stream_args}" | awk '{$NF=""; print $0;}')"
     radio_link="$(echo "${stream_args}" | awk '{print $NF;}')"
     espeak -v french "${radio_name}"
-    vlc "${radio_link}" 2>/dev/null >/dev/null &
+    cvlc "${radio_link}" 2>/dev/null >/dev/null &
     # save the pid of vlc to kill it when going to the next radio
     fridge_process=$!
     # wait for page up or down
