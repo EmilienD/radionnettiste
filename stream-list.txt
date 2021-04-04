@@ -1,5 +1,5 @@
 RTL https://icecast.rtl.fr/rtl-1-44-128?listen=wEbDAQODAkPCwwMAg8EBAIFCQ
-Europe 1. https://www.dailymotion.com/cdn/live/video/xqjkfz.m3u8?sec=DUJ4pwwfXFRt2Wp5VHH34oWbyOIxvjY5Tv9Zvz04D6box2rUP5G50y89FFtZ3y5IE7BcRNwrjPHHNE22J4YaWA
+Europe 1. https://stream-01.dc3.dailymotion.com/sec(kIyZk1TvJ__htJbCTbJjvNxsm-BIcgoRcVdO0dYTxPk)/dm/3/xqjkfz/d/live-0.m3u8
 RMC https://rmc2hdslive-lh.akamaihd.net/i/RMC_ESYTLS@167269/master.m3u8
 France intère. https://stream.radiofrance.fr/franceinter/franceinter_hifi.m3u8?id=radiofrance
 Rire et chansons https://scdn.nrjaudio.fm/fr/30401/mp3_128.mp3?origine=mytuner&cdn_path=adswizz_lbs9
