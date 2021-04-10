@@ -64,7 +64,7 @@ function main() {
     radio_name="$(echo "${stream_args}" | awk '{$NF=""; print $0;}')"
     radio_link="$(echo "${stream_args}" | awk '{print $NF;}')"
     if [[ ! $is_paused ]]; then
-      cvlc "${radio_link}" 2>/dev/null >/dev/null &
+      cvlc --volume-step=255 --gain=8 "${radio_link}" 2>/dev/null >/dev/null &
       # save the pid of vlc to kill it when going to the next radio
       fridge_process=$!
     fi
