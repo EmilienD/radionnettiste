@@ -35,6 +35,8 @@ function detect_command() {
 }
 
 function main() {
+  amixer scontrols
+  amixer sset 'Master' 100%
   local stream_file=$1
   if [[ ! $stream_file ]]; then
     echoerr "Invalid argument: Missing file with list of streams"
