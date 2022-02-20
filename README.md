@@ -2,16 +2,17 @@
 
 This project "emulates" a traditional fm radio.
 It works as a "carousel", where the only commands are previous and next radio in a circular list.
-It uses puppetteer to access the web radios of a select few stations.
+It uses VLC to access the web radio streams of a select few stations.
+The code base also contains a first attempt using puppeteer which turned out to be much too slow
+and unstable to be useful.
 
 ## Install
 
-`npm i` or whatever equivalent in you favorite package manager.  
-This program assumes there's a version of chrome installed at `/usr/bin/google-chrome`.
+The program is a bash script, and needs VLC installed
 
 ## Start
 
-`node index.js`
+`./radionnetiste.sh stream-list.txt`
 
 ## Motivation
 

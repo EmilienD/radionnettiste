@@ -1,5 +1,5 @@
-RTL https://icecast.rtl.fr/rtl-1-44-128?listen=wEbDAQODAkPCwwMAg8EBAIFCQ
-Europe 1. https://stream.europe1.fr/europe1.aac?aw_0_1st.playerid=lgrdrnwsEcouterRadioEnLigne
-RMC https://audio.bfmtv.com/rmcradio_128.mp3
-France intère. https://stream.radiofrance.fr/franceinter/franceinter_hifi.m3u8?id=radiofrance
-Rire et chansons https://scdn.nrjaudio.fm/fr/30401/mp3_128.mp3?origine=mytuner&cdn_path=adswizz_lbs9
+RTL;https://streamer-04.rtl.fr/rtl-1-44-128;2
+Europe 1.;https://stream.europe1.fr/europe1.aac?aw_0_1st.playerid=lgrdrnwsEcouterRadioEnLigne;1
+RMC;https://audio.bfmtv.com/rmcradio_128.mp3;1
+France intère.;https://stream.radiofrance.fr/franceinter/franceinter_hifi.m3u8?id=radiofrance;1
+Rire et chansons;https://scdn.nrjaudio.fm/fr/30401/mp3_128.mp3?origine=mytuner&cdn_path=adswizz_lbs9;1

@@ -61,10 +61,11 @@ function main() {
     fi
     # read name and url from line in file, announce and play radio in background
     stream_args=$(sed "${line_num}q;d" "${stream_file}")
-    radio_name="$(echo "${stream_args}" | awk '{$NF=""; print $0;}')"
-    radio_link="$(echo "${stream_args}" | awk '{print $NF;}')"
+    radio_name="$(echo "${stream_args}" | awk -F ';' '{print $1;}')"
+    radio_link="$(echo "${stream_args}" | awk -F ';' '{print $2;}')"
+    gain="$(echo "${stream_args}" | awk -F ';' '{print $3;}')"
     if [[ ! $is_paused ]]; then
-      cvlc --volume-step=255 "${radio_link}" 2>/dev/null >/dev/null &
+      cvlc --volume-step=255 --gain "${gain}" "${radio_link}" 2>/dev/null >/dev/null &
       # save the pid of vlc to kill it when going to the next radio
       fridge_process=$!
     fi
