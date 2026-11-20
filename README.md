@@ -14,6 +14,11 @@ The program is a bash script, and needs VLC installed
 
 `./radionnetiste.sh stream-list.txt`
 
+The list of streams can also be read from stdin, which allows to refresh the
+RTL stream url (it changes regularly) before starting:
+
+`./fetch_stream_url.sh | ./radionnetiste.sh`
+
 ## Motivation
 
 This project is intended to allow my dad and his wife to listen to the radios they can not receive via fm frequencies, on a Raspberry Pi with no screen and a simple interface with only a page up and down button.

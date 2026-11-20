@@ -14,11 +14,16 @@ PAGE_DOWN=$'\e[6~'
 NEXT=NEXT
 PREVIOUS=PREVIOUS
 PAUSE=PAUSE
+EOF_INPUT=EOF_INPUT
 
 echoerr() { echo "$@" 1>&2; }
 
 function detect_command() {
-  read -rn4 ans
+  if ! read -rn4 ans; then
+    # no more input (stdin closed): nothing else can be read
+    printf "%s" ${EOF_INPUT}
+    return
+  fi
   read -t 0.5 -rn4 dbl_click
   if [[ $dbl_click ]]; then
     printf "%s" $PAUSE
@@ -38,9 +43,23 @@ function main() {
   amixer scontrols
   amixer sset 'Master' 100%
   local stream_file=$1
+  local temp_file=""
   if [[ ! $stream_file ]]; then
-    echoerr "Invalid argument: Missing file with list of streams"
-    exit 22
+    if [[ -t 0 ]]; then
+      echoerr "Invalid argument: Missing file with list of streams"
+      exit 22
+    fi
+    # no file given: read the list of streams from stdin
+    temp_file=$(mktemp)
+    trap "rm -f '${temp_file}'" EXIT
+    cat > "${temp_file}"
+    stream_file=${temp_file}
+    # the buttons are read from stdin: get them back from the terminal
+    if [[ ! -t 0 ]] && { : </dev/tty; } 2>/dev/null; then
+      exec 3</dev/tty
+      exec 0<&3
+      exec 3<&-
+    fi
   fi
   readonly stream_file
   local line_num=1
@@ -90,6 +109,13 @@ function main() {
       ;;
     "${PAUSE}")
       if [[ $is_paused ]]; then is_paused=""; else is_paused=1; fi
+      ;;
+    "${EOF_INPUT}")
+      # the buttons are gone: stop the radio and leave
+      if [[ ${fridge_process} ]]; then
+        kill "${fridge_process}" 2>/dev/null
+      fi
+      exit 0
       ;;
     esac
   done
